@@ -1,0 +1,162 @@
+% Debian Packaging 講座
+% 第一回
+% 2015-02-11 日比野 啓
+
+
+本日の流れ
+=======
+
+* Packaging の準備
+* Packaging
+
+
+Debian Packaging の流れ
+=======
+
+0. パッケージングしたいソフトウェアのインストールを試す
+
+1. dh_make
+
+2. debian/* 以下を直す
+
+3. debuild -uc -us
+
+4. lintian -i ../*.dsc
+
+2 〜 4 を繰り返す
+
+
+adduser, sudo
+=======
+
+通常の(rootでない)ユーザーアカウントを作っていない人は作る
+
+~~~
+adduser <username>
+~~~
+
+sudo を入れておく
+
+~~~
+# apt-get install sudo
+# adduser <username> sudo
+~~~
+
+ユーザーアカウントでログイン済みの人はログイン仕直す
+
+日本語
+=======
+
+日本語フォントを入れた X が動くようにしておく
+
+~~~
+% sudo apt-get install locales
+% sudo dpkg-reconfigure locales
+~~~
+en_US.UTF-8, ja_JP.UTF-8 等にチェックして locale を生成
+
+~~~
+# sudo apt-get install less lv
+~~~
+
+
+Document pacakges
+=======
+
+~~~
+% sudo apt-get [-s] install \
+  man-db \
+  manpages manpages-ja \
+  manpages-dev manpages-ja-dev
+~~~
+
+マニュアルページの読みかた - How to manual pages
+=======
+
+sudo(8), adduser(8), apt-get(8)
+
+~~~
+% man 8 sudo
+% man 8 adduser
+% man apt-get
+~~~
+
+第一引数に マニュアルページの section を渡すことができる。
+複数の section に同じ名前のマニュアルが無いのなら省略しても読める。
+
+
+Packaging に必要なもの
+=======
+
+~~~
+% sudo apt-get [-s] install \
+  build-essential dh-make \
+  devscripts lintian fakeroot
+~~~
+
+あった方がよさそう
+=======
+
+~~~
+% sudo apt-get install apt-file dlocate wget
+~~~
+
+~~~
+% sudo -v ; sudo /etc/cron.daily/dlocate &
+% apt-file update
+~~~
+
+Packaging
+=======
+
+~~~
+% mkdir work
+% cd work
+~~~
+
+~~~
+% wget http://ftp.gnu.org/gnu/hello/hello-2.7.tar.gz
+% tar zxvf hello-2.7.tar.gz
+% cd hello-2.7
+% dh_make -f ../hello-2.7.tar.gz
+~~~
+
+~~~
+% ls -ld debian
+% debuild -uc -us
+~~~
+
+Check packaging result
+======
+
+~~~
+debc
+lintian -i
+~~~
+
+~~~
+sudo debi
+~~~
+
+
+Not automated case
+======
+
+~~~
+% wget http://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz
+% tar zxvf hello-2.10.tar.gz
+% cd hello-2.10
+% dh_make -f ../hello-2.10.tar.gz
+~~~
+
+perl
+======
+pulledpork
+
+
+参考ドキュメント
+=======
+
+
+
+http://tokyodebian.alioth.debian.org/undocumenteddebian.html
