@@ -3,13 +3,6 @@
 % 2015-02-11 日比野 啓
 
 
-本日の流れ
-=======
-
-* 準備
-* Packaging
-* debian/*
-
 Debian Packaging の流れ
 =======
 
@@ -348,10 +341,25 @@ hello-2.10$ dch -r
 
 dch(1)
 
+
 lintian
 ======
 
 あとは lintian -i の結果を見てなんとかする
+
+
+Get already packaged source
+======
+
+/etc/apt/sources.list に deb-src を書いて、
+apt-get update しておく
+
+~~~
+~/work$ mkdir pkg-src
+~/work$ cd pkg-src
+pkg-src$ apt-get source hello
+~~~
+hello の Packaging 済みのソースを取ってくる
 
 
 参考ドキュメント

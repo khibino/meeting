@@ -34,14 +34,6 @@
   <h2>第一回 Introduction</h2>
   <h3>2015-02-11 日比野 啓</h3>
 </div>
-<div id="本日の流れ" class="slide section level1">
-<h1>本日の流れ</h1>
-<ul>
-<li>準備</li>
-<li>Packaging</li>
-<li>debian/*</li>
-</ul>
-</div>
 <div id="debian-packaging-の流れ" class="slide section level1">
 <h1>Debian Packaging の流れ</h1>
 <ol start="0" style="list-style-type: decimal">
@@ -234,6 +226,14 @@ hello-2.10$ dch -r</code></pre>
 <div id="lintian" class="slide section level1">
 <h1>lintian</h1>
 <p>あとは lintian -i の結果を見てなんとかする</p>
+</div>
+<div id="get-already-packaged-source" class="slide section level1">
+<h1>Get already packaged source</h1>
+<p>/etc/apt/sources.list に deb-src を書いて、 apt-get update しておく</p>
+<pre><code>~/work$ mkdir pkg-src
+~/work$ cd pkg-src
+pkg-src$ apt-get source hello</code></pre>
+<p>hello の Packaging 済みのソースを取ってくる</p>
 </div>
 <div id="参考ドキュメント" class="slide section level1">
 <h1>参考ドキュメント</h1>
