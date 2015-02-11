@@ -331,6 +331,23 @@ hello-2.10$ rm debian/hello.substvars
 hello-2.10$ dh_shlibdeps
 ~~~
 
+Changelog file
+======
+
+debian/changelog
+
+Debian package を更新したら更新ログを書く
+
+Debian package の revision がここで決まる
+
+~~~
+hello-2.10$ dch
+hello-2.10$ dch
+hello-2.10$ dch -r
+~~~
+
+dch(1)
+
 lintian
 ======
 

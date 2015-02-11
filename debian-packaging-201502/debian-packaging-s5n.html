@@ -221,6 +221,16 @@ hello-2.10$ /usr/bin/hello</code></pre>
 <pre><code>hello-2.10$ rm debian/hello.substvars
 hello-2.10$ dh_shlibdeps</code></pre>
 </div>
+<div id="changelog-file" class="slide section level1">
+<h1>Changelog file</h1>
+<p>debian/changelog</p>
+<p>Debian package を更新したら更新ログを書く</p>
+<p>Debian package の revision がここで決まる</p>
+<pre><code>hello-2.10$ dch
+hello-2.10$ dch
+hello-2.10$ dch -r</code></pre>
+<p>dch(1)</p>
+</div>
 <div id="lintian" class="slide section level1">
 <h1>lintian</h1>
 <p>あとは lintian -i の結果を見てなんとかする</p>
