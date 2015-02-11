@@ -279,8 +279,9 @@ dh(1)
 How to fix it?
 ======
 
-直すのに挑戦してみましょう。
+直すのに挑戦してみましょう
 
+うまくいったらインストール
 
 ~~~
 hello-2.10$ debc
@@ -297,6 +298,11 @@ Rules and debhelper
 ~~~
 
 build ログから、rules が何をしているのかを観察する
+
+rules のターゲット名が渡されて呼ばれているはず
+
+debian/rules
+dh_*
 
 
 Control file
