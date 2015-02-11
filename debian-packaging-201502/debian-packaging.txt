@@ -6,9 +6,9 @@
 本日の流れ
 =======
 
-* Packaging の準備
+* 準備
 * Packaging
-
+* debian/*
 
 Debian Packaging の流れ
 =======
@@ -134,6 +134,14 @@ More optionals
 ~$ apt-file update
 ~~~
 
+~~~
+dlocate debuild
+apt-file search bin/apt-get
+~~~
+
+Packaging
+======
+
 Packaging 1
 =======
 
@@ -153,11 +161,7 @@ Packaging するソースを取ってくる
 wget(1), info wget
 
 
-Packaging
-======
-
-
-Packaging 1
+Packaging 2
 ======
 
 試しにインストール
@@ -175,7 +179,7 @@ hello-2.7$ /usr/local/hello-2.7/bin/hello
 
 mkdir(1), tar(1), make(1)
 
-Packaging 2
+Packaging 3
 =======
 
 実際に Packaging してみる
@@ -289,7 +293,11 @@ Rules and debhelper
 ======
 
 ~~~
-fakeroot debian/rules clean
+~/work$ less ../hello_2.10-1_amd64.build
+~~~
+
+build ログから、rules が何をしているのかを観察する
+
 
 Control file
 ======
@@ -306,6 +314,12 @@ debian/*.substvars
 
 dh_shlibdeps(1)
 
+~~~
+hello-2.10$ cat debian/hello.substvars
+hello-2.10$ rm debian/hello.substvars
+hello-2.10$ dh_shlibdeps
+hello-2.10$ cat debian/hello.substvars
+~~~
 
 lintian
 ======
@@ -321,3 +335,7 @@ lintian
 
 * 日本語の HowTo 文書
 ** http://tokyodebian.alioth.debian.org/undocumenteddebian.html
+
+
+Questions?
+======
