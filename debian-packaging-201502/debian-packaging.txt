@@ -1,6 +1,6 @@
 % Debian Packaging
 % 第一回 Introduction
-% 2015-02-11 日比野 啓
+% 2015-02-12 日比野 啓
 
 
 Debian Packaging の流れ
