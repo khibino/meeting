@@ -195,7 +195,8 @@ $ w3m /usr/share/doc/maint-guide/html/index.en.html</code></pre>
 </div>
 <div id="how-to-fix-it" class="slide section level1">
 <h1>How to fix it?</h1>
-<p>直すのに挑戦してみましょう。</p>
+<p>直すのに挑戦してみましょう</p>
+<p>うまくいったらインストール</p>
 <pre><code>hello-2.10$ debc
 hello-2.10$ lintian -i
 hello-2.10$ sudo debi
@@ -205,6 +206,8 @@ hello-2.10$ /usr/bin/hello</code></pre>
 <h1>Rules and debhelper</h1>
 <pre><code>~/work$ less ../hello_2.10-1_amd64.build</code></pre>
 <p>build ログから、rules が何をしているのかを観察する</p>
+<p>rules のターゲット名が渡されて呼ばれているはず</p>
+<p>debian/rules dh_*</p>
 </div>
 <div id="control-file" class="slide section level1">
 <h1>Control file</h1>
@@ -213,10 +216,8 @@ hello-2.10$ /usr/bin/hello</code></pre>
 <p>native の dynamic link library は、 dh_shlibdeps で自動検出される</p>
 <p>debian/*.substvars</p>
 <p>dh_shlibdeps(1)</p>
-<pre><code>hello-2.10$ cat debian/hello.substvars
-hello-2.10$ rm debian/hello.substvars
-hello-2.10$ dh_shlibdeps
-hello-2.10$ cat debian/hello.substvars</code></pre>
+<pre><code>hello-2.10$ rm debian/hello.substvars
+hello-2.10$ dh_shlibdeps</code></pre>
 </div>
 <div id="lintian" class="slide section level1">
 <h1>lintian</h1>
