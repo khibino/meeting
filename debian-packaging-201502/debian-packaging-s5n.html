@@ -4,8 +4,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <meta name="author" content="第一回" />
-  <title>Debian Packaging 講座</title>
+  <meta name="author" content="第一回 Introduction" />
+  <title>Debian Packaging</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!-- configuration parameters -->
   <meta name="defaultView" content="slideshow" />
@@ -25,20 +25,21 @@
 <div id="header"></div>
 <div id="footer">
   <h1>2015-02-11 日比野 啓</h1>
-  <h2>Debian Packaging 講座</h2>
+  <h2>Debian Packaging</h2>
 </div>
 </div>
 <div class="presentation">
 <div class="titleslide slide">
-  <h1>Debian Packaging 講座</h1>
-  <h2>第一回</h2>
+  <h1>Debian Packaging</h1>
+  <h2>第一回 Introduction</h2>
   <h3>2015-02-11 日比野 啓</h3>
 </div>
 <div id="本日の流れ" class="slide section level1">
 <h1>本日の流れ</h1>
 <ul>
-<li>Packaging の準備</li>
+<li>準備</li>
 <li>Packaging</li>
+<li>debian/*</li>
 </ul>
 </div>
 <div id="debian-packaging-の流れ" class="slide section level1">
@@ -202,7 +203,8 @@ hello-2.10$ /usr/bin/hello</code></pre>
 </div>
 <div id="rules-and-debhelper" class="slide section level1">
 <h1>Rules and debhelper</h1>
-<p><sub>~</sub> fakeroot debian/rules clean</p>
+<pre><code>~/work$ less ../hello_2.10-1_amd64.build</code></pre>
+<p>build ログから、rules が何をしているのかを観察する</p>
 </div>
 <div id="control-file" class="slide section level1">
 <h1>Control file</h1>
@@ -211,6 +213,10 @@ hello-2.10$ /usr/bin/hello</code></pre>
 <p>native の dynamic link library は、 dh_shlibdeps で自動検出される</p>
 <p>debian/*.substvars</p>
 <p>dh_shlibdeps(1)</p>
+<pre><code>hello-2.10$ cat debian/hello.substvars
+hello-2.10$ rm debian/hello.substvars
+hello-2.10$ dh_shlibdeps
+hello-2.10$ cat debian/hello.substvars</code></pre>
 </div>
 <div id="lintian" class="slide section level1">
 <h1>lintian</h1>
@@ -222,6 +228,9 @@ hello-2.10$ /usr/bin/hello</code></pre>
 <li><p>公式のマニュアル ** https://www.debian.org/doc/#manuals</p></li>
 <li><p>日本語の HowTo 文書 ** http://tokyodebian.alioth.debian.org/undocumenteddebian.html</p></li>
 </ul>
+</div>
+<div id="questions" class="slide section level1">
+<h1>Questions?</h1>
 </div>
 </div>
 </body>

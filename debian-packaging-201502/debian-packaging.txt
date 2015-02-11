@@ -1,5 +1,5 @@
-% Debian Packaging 講座
-% 第一回
+% Debian Packaging
+% 第一回 Introduction
 % 2015-02-11 日比野 啓
 
 
@@ -315,10 +315,8 @@ debian/*.substvars
 dh_shlibdeps(1)
 
 ~~~
-hello-2.10$ cat debian/hello.substvars
 hello-2.10$ rm debian/hello.substvars
 hello-2.10$ dh_shlibdeps
-hello-2.10$ cat debian/hello.substvars
 ~~~
 
 lintian
