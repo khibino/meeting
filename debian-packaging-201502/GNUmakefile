@@ -5,8 +5,13 @@ md_format = \
 slide_opts = \
         --standalone --self-contained --slide-level=1
 
+targets = \
+	debian-packaging-s5n.html
 
 %-s5n.html: %.txt
 	pandoc -f $(md_format) -t s5 $(slide_opts) -o $@ $<
 
-all: debian-packaging-s5n.html
+all: $(targets)
+
+clean:
+	$(RM) $(targets)
