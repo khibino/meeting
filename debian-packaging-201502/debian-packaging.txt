@@ -120,13 +120,19 @@ Packaging に使うもの
   [ ng-cjk | emacs24 | vim | jed ]
 ~~~
 
-More optionals
+Optionals
 =======
 
 パッケージ内のファイル検索用
 
 ~~~
 ~$ sudo apt-get install apt-file dlocate
+~~~
+
+PDF viewer
+
+~~~
+~$ sudo apt-get install evince
 ~~~
 
 ~~~
@@ -335,10 +341,10 @@ lintian
 ======
 
 * 公式のマニュアル
-** https://www.debian.org/doc/#manuals
+    * <https://www.debian.org/doc/#manuals>
 
 * 日本語の HowTo 文書
-** http://tokyodebian.alioth.debian.org/undocumenteddebian.html
+    * <http://tokyodebian.alioth.debian.org/undocumenteddebian.html>
 
 
 Questions?
